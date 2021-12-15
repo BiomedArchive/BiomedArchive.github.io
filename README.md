@@ -1,1 +1,1 @@
-# Biomed-Archive.github.io
+# BiomedArchive.github.io
