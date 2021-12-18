@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <link rel="icon" href="Favicon.png">
- 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
 <body>
 <style>
 .header {
@@ -43,25 +44,32 @@
 </div>
   <button type="button" class="collapsible"><center>PDF Form</center></button>
 <div class="content">
-<form>
-    <h1>Storing User Input in a Variable</h1>
-    <p>Enter some text</p>
-    <input id="userInput" type="text" placeholder="Text">
-	<input id="userInput2" type="text" placeholder="Text">
-	<input id="userInput3" type="text" placeholder="Text">
-	<input id="userInput4" type="text" placeholder="Text">
-    <button onclick="returnText()">Submit</button>
-</form>
+		<input type="text" id="name" value=""/ placeholder="Name"><br>
+		<input type="text" id="company" value="" placeholder="Company" /><br>
+		<input type="text" id="department" value="" placeholder="Department" /><br>
+		<input type="text" id="title" value="" placeholder="Job Title"/><br>
+		<button onclick="makeDocument()">Submit</button>
 </div>
 <script>
-function returnText(){
-    let input = document.getElementById("userInput").value;
-    alert(input)
-}
-function returnText(){
-    let input = document.getElementById("userInput4").value;
-    alert(input)
-}
+	function makeDocument() {
+		var doc = new jsPDF();
+		var name = $('#name').val();
+		var company = $('#company').val();
+		var department = $('#department').val();
+		var title = $('#title').val();
+		
+		doc.setFontSize(26);
+		doc.setTextColor(92, 76, 76);
+		
+		doc.text(23, 81, name);
+		doc.text(23, 122, company);
+		doc.text(23, 162, department);
+		doc.text(23, 202, title);
+		doc.save('Test.pdf');
+};
+</script>
+<script>
+
 var coll = document.getElementsByClassName("collapsible");
 var i;
 
