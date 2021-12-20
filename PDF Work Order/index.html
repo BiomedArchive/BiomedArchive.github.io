@@ -5,6 +5,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
 <body>
 <style>
+.p {text-align: center;}
 .header {
   margin-top: 0px;
   margin-left: 0px;
@@ -27,12 +28,16 @@
   background-color: #eee;
   color: #444;
   cursor: pointer;
-  padding: 18px;
+  padding: 20px;
   width: 20%;
   border: none;
   text-align: left;
   outline: none;
   font-size: 15px;
+}
+input { display: table-cell; }
+table, th, td {
+  border:1px solid black;
 }
 </style>
 <center>
@@ -42,29 +47,71 @@
     body { margin:0; padding:0;}
     </style>
 </div>
+</center>
   <button type="button" class="collapsible"><center>PDF Form</center></button>
 <div class="content">
-		<input type="text" id="name" value=""/ placeholder="Name"><br>
-		<input type="text" id="company" value="" placeholder="Company" /><br>
-		<input type="text" id="department" value="" placeholder="Department" /><br>
-		<input type="text" id="title" value="" placeholder="Job Title"/><br>
+		<center>
+		<label for="Asset">Asset#:</label>
+		<input maxlength="12" size="12" type="text" id="asset" value="" placeholder=""/><br>
+		<label for="Serial">Serial#:</label>
+		<input maxlength="12" size="12"type="text" id="serial" value="" placeholder="" /><br>
+		<table style="width:100%">
+	<p style="text-align:center">Pulse Width (milliseconds)</p>
+  <tr>
+    <th>Expected</th>
+    <th>Measured</th>
+  </tr>
+  <tr>
+    <td>1.0</td>
+    <td><input maxlength="4" size="4" type="text" id="ect" value="" placeholder="" /></td>
+  </tr>
+  <tr>
+    <td>0.5</td>
+    <td><input maxlength="4" size="4" type="text" id="ect1" value="" placeholder="" /></td>
+  </tr>
+</table>
+		
 		<button onclick="makeDocument()">Submit</button>
+		</center>
 </div>
 <script>
 	function makeDocument() {
 		var doc = new jsPDF();
-		var name = $('#name').val();
-		var company = $('#company').val();
-		var department = $('#department').val();
-		var title = $('#title').val();
+		var asset = $('#asset').val();
+		var serial = $('#serial').val();
+		var ect = $('#ect').val();
+		var ect1 = $('#ect1').val();
+		var ect2 = $('#ect2').val();
+		var ect3 = $('#ect3').val();
+		var ect4 = $('#ect4').val();
+		var ect5 = $('#ect5').val();
+		var ect6 = $('#ect6').val();
+		var ect7 = $('#ect7').val();
+		var ect8 = $('#ect8').val();
+		var ect9 = $('#ect9').val();
+		var ect10 = $('#ect10').val();
+		var ect11 = $('#ect11').val();
+		var ect12 = $('#ect12').val();
 		
-		doc.setFontSize(26);
+		
+		doc.setFontSize(13);
 		doc.setTextColor(92, 76, 76);
 		
-		doc.text(23, 81, name);
-		doc.text(23, 122, company);
-		doc.text(23, 162, department);
-		doc.text(23, 202, title);
+		doc.text(23, 20, asset);
+		doc.text(23, 30, serial);
+		doc.text(23, 40, ect);
+		doc.text(23, 50, ect1);
+		doc.text(23, 60, ect2);
+		doc.text(23, 70, ect3);
+		doc.text(23, 80, ect4);
+		doc.text(23, 90, ect5);
+		doc.text(23, 100, ect6);
+		doc.text(23, 110, ect7);
+		doc.text(23, 120, ect8);
+		doc.text(23, 130, ect9);
+		doc.text(23, 140, ect10);
+		doc.text(23, 150, ect11);
+		doc.text(23, 160, ect12);
 		doc.save('Test.pdf');
 };
 </script>
@@ -85,7 +132,6 @@ for (i = 0; i < coll.length; i++) {
   });
 }
 </script>
-</center>
 <style>
 html { 
   background: url("Work_Bench.png") no-repeat center center fixed; 
