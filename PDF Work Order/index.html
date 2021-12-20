@@ -86,12 +86,13 @@ table, th, td {
 		doc.addImage(imgData, 'JPEG', 0, 0, 201, 290);
 		doc.setFont("calibri");
 		doc.setFontSize(16.5);
-		doc.setTextColor(92, 76, 76);
+		doc.setFontType("bold");
+		doc.setTextColor(0, 0, 0);
 
-		doc.text(55, 36, asset);
+		doc.text(50, 35.5, asset);
 		doc.text(23, 30, serial);
-		doc.text(90, 60, ect);
-		doc.text(90, 68, ect1);
+		doc.text(91, 60, ect);
+		doc.text(91, 68, ect1);
 		doc.save(pmInfo+asset+'.pdf');
 };
 </script>
