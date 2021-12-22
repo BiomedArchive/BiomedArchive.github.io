@@ -5,6 +5,53 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
 <body>
 <style>
+:root {
+  font-family: sans-serif;
+}
+
+
+div.collapsible-container {
+  display: flex;
+  width: 35%;
+  flex-wrap: nowrap
+}
+div.collapsible-container > details {
+  flex-basis: 100px;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+details {
+  width: 20%;
+  background-color: #777;
+  border: 1px solid black;
+}
+
+details > summary {
+  color: white;
+  padding: 1em;
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+details[open],
+details > summary:hover {
+  background-color: black;
+}
+
+details > summary + div {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  width: 100%;
+  color: #FFFFFF;
+  background-color: #000000;
+}
+
+details > summary::before {
+  content: '';
+  display: inline;
+}
 .p {text-align: center;}
 .header {
   margin-top: 0px;
@@ -15,6 +62,7 @@
   color: white;
 }
 button {
+display: flex;
 }
 .content {
   padding-top: 25px;
@@ -35,7 +83,6 @@ button {
   padding: 20px;
   width: 20%;
   border: none;
-  text-align: left;
   outline: none;
   font-size: 15px;
 }
@@ -55,8 +102,10 @@ td {
     </style>
 </div>
 </center>
-  <button type="button" class="collapsible"><center>ECT PM FORM</center></button>
-<div class="content">
+<div class="collapsible-container">
+<details>
+  <summary><center>ECT PM FORM</center></summary>
+<div>
 	<center>
 	<table style="width:60%">
   <tr>
@@ -188,6 +237,143 @@ td {
 		<button onclick="makeDocument()">Submit</button>
 		</center>
 </div>
+</details>
+<details>
+  <summary><center>ECT PM FORM</center></summary>
+<div>
+	<center>
+	<table style="width:60%">
+  <tr>
+    <td>Asset#:</td>
+    <td><input maxlength="12" size="12" type="text" id="asset" value="" placeholder="" /></td>
+  </tr>
+  <tr>
+    <td>Model#:</td>
+    <td><input maxlength="12" size="12" type="text" id="model" value="" placeholder="" /></td>
+  </tr>
+    <tr>
+    <td>Date:</td>
+    <td><input maxlength="12" size="12" type="text" id="date" value="" placeholder="" /></td>
+  </tr>
+  </table>
+	<table style="width:90%">
+	<p style="text-align:center"><b>Pulse Width (milliseconds)</b></p>
+  <tr>
+    <th style="text-align:left">Expected</th>
+    <th style="text-align:left">Measured</th>
+  </tr>
+  <tr>
+    <td>1.0</td>
+    <td><input maxlength="4" size="3" type="text" id="ect" value="" placeholder="" /></td>
+  </tr>
+  <tr>
+    <td>0.5</td>
+    <td><input maxlength="4" size="3" type="text" id="ect1" value="" placeholder="" /></td>
+  </tr>
+    <tr>
+    <td>0.3</td>
+    <td><input maxlength="4" size="3" type="text" id="ect2" value="" placeholder="" /></td>
+  </tr>
+  </table>
+  <table style="width:90%">
+    <p style="text-align:center"><b>Frequency (hertz)</b></p>
+	  <tr>
+    <th style="text-align:left">Expected</th>
+    <th style="text-align:left">Measured</th>
+  </tr>
+    <tr>
+    <td>20 (50 ms)</td>
+    <td><input maxlength="4" size="3" type="text" id="ect3" value="" placeholder="" /></td>
+  </tr>
+  <tr>
+    <td>40 (25 ms)</td>
+    <td><input maxlength="4" size="3" type="text" id="ect4" value="" placeholder="" /></td>
+  </tr>
+    <tr>
+    <td>60 (16.7 ms)</td>
+    <td><input maxlength="4" size="3" type="text" id="ect5" value="" placeholder="" /></td>
+  </tr>  <tr>
+    <td>90 (11.1 ms)</td>
+    <td><input maxlength="4" size="3" type="text" id="ect6" value="" placeholder="" /></td>
+  </tr>
+  <tr>
+    <td>120 (8,3 ms)</td>
+    <td><input maxlength="4" size="3" type="text" id="ect7" value="" placeholder="" /></td>
+  </tr>
+</table>
+  <table style="width:90%">
+    <p style="text-align:center"><b>Duration (seconds)</b></p>
+	  <tr>
+    <th style="text-align:left">Expected</th>
+    <th style="text-align:left">Measured</th>
+  </tr>
+    <tr>
+    <td>8.00</td>
+    <td><input maxlength="4" size="3" type="text" id="ect8" value="" placeholder="" /></td>
+  </tr>
+  <tr>
+    <td>4.00</td>
+    <td><input maxlength="4" size="3" type="text" id="ect9" value="" placeholder="" /></td>
+  </tr>
+    <tr>
+    <td>2.00</td>
+    <td><input maxlength="4" size="3" type="text" id="ect10" value="" placeholder="" /></td>
+  </tr>  <tr>
+    <td>1.00</td>
+    <td><input maxlength="4" size="3" type="text" id="ect11" value="" placeholder="" /></td>
+  </tr>
+  <tr>
+    <td>0.50</td>
+    <td><input maxlength="4" size="3" type="text" id="ect12" value="" placeholder="" /></td>
+  </tr>
+</table>
+  <table style="width:90%">
+    <p style="text-align:center"><b>Output (volts)</b></p>
+	  <tr>
+    <th style="text-align:left">Expected</th>
+    <th style="text-align:left">Measured</th>
+  </tr>
+    <tr>
+    <td>0.50</td>
+    <td><input maxlength="4" size="3" type="text" id="ect13" value="" placeholder="" /></td>
+  </tr>
+  <tr>
+    <td>0.60</td>
+    <td><input maxlength="4" size="3" type="text" id="ect14" value="" placeholder="" /></td>
+  </tr>
+    <tr>
+    <td>0.70</td>
+    <td><input maxlength="4" size="3" type="text" id="ect15" value="" placeholder="" /></td>
+  </tr>  <tr>
+    <td>0.80</td>
+    <td><input maxlength="4" size="3" type="text" id="ect16" value="" placeholder="" /></td>
+  </tr>
+  <tr>
+    <td>0.90</td>
+    <td><input maxlength="4" size="3" type="text" id="ect17" value="" placeholder="" /></td>
+  </tr>
+</table>
+	<table style="width:90%">
+	<p style="text-align:center"><b>Electrical Safety</b></p>
+  <tr>
+    <td>Ground resistance (mΩ):</td>
+    <td><input maxlength="5" size="4" type="text" id="gre" value="" placeholder="" /></td>
+  </tr>
+  <tr>
+    <td>Ground leakage (μamps):</td>
+    <td><input maxlength="5" size="4" type="text" id="gle" value="" placeholder="" /></td>
+  </tr>
+    <tr>
+    <td>Chassis leakage (μamps):</td>
+    <td><input maxlength="5" size="4" type="text" id="cle" value="" placeholder="" /></td>
+  </tr>
+  </table>
+		<p style="font-size:5px;">&nbsp;</p>
+		<button onclick="makeDocument()">Submit</button>
+		</center>
+</div>
+</details>
+</div>
 <script>
 	function makeDocument() {
 		var doc = new jsPDF();
@@ -249,23 +435,6 @@ td {
 		doc.text(127, 14, date);
 		doc.save(pmInfo+asset+'.pdf');
 };
-</script>
-<script>
-
-var coll = document.getElementsByClassName("collapsible");
-var i;
-
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.display === "block") {
-      content.style.display = "none";
-    } else {
-      content.style.display = "block";
-    }
-  });
-}
 </script>
 <style>
 html { 
